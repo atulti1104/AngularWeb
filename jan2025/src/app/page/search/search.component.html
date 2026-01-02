@@ -1,0 +1,114 @@
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">
+    <span>MyCompany</span>
+  </div>
+
+  <div class="hamburger" (click)="toggleMenu()">☰</div>
+
+  <ul class="nav-links" [class.active]="menuOpen">
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+
+  <div class="auth-buttons">
+    <button class="login" routerLink="/login">Login</button>
+    <button class="signup" routerLink="/signup">Sign Up</button>
+
+    <div class="cart" routerLink="/cart">
+      🛒
+      <span class="cart-count" *ngIf="cartCount > 0">{{ cartCount }}</span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Find things you’ll love</h1>
+
+  <div class="search-bar">
+    <input type="text" placeholder="Search for anything" />
+    <button>Search</button>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories">
+  <div class="category-card" *ngFor="let cat of categories">
+    <div class="img-placeholder"></div>
+    <p>{{ cat }}</p>
+  </div>
+</section>
+
+<!-- products -->
+<section class="products">
+  <h2>Popular right now</h2>
+
+  <div class="product-grid">
+    <div class="product-card" *ngFor="let p of products">
+      <div class="img-placeholder product-img" (click)="openPopup(p)">
+        <!-- image yahan aayegi -->
+      </div>
+      <p class="title">{{ p.name }}</p>
+      <p class="price">₹{{ p.price }}</p>
+    </div>
+  </div>
+</section>
+
+<!-- POPUP (UNCHANGED) -->
+<div class="overlay" *ngIf="showPopup">
+  <div class="modal">
+    <span class="close" (click)="closePopup()">✖</span>
+
+    <div class="img-placeholder modal-img" ></div>
+
+    <h2>{{ selectedItem.name }}</h2>
+    <p>{{ selectedItem.desc }}</p>
+    <h3>₹{{ selectedItem.price }}</h3>
+
+    <button (click)="addToCart()">Add to Cart</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section">
+      <h2 class="logo">MyCompany</h2>
+      <p>Discover unique products, crafted with care and creativity.</p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Account</h3>
+      <ul>
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Sign Up</a></li>
+        <li><a href="#">My Orders</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <span>🌐</span>
+        <span>📘</span>
+        <span>📸</span>
+        <span>🐦</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © {{ year }} MyCompany. All rights reserved.
+  </div>
+</footer>
