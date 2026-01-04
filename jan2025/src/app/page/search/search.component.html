@@ -1,4 +1,4 @@
-<!-- NAVBAR -->
+<!-- ================= NAVBAR ================= -->
 <nav class="navbar">
   <div class="logo">
     <span>MyCompany</span>
@@ -18,12 +18,12 @@
 
     <div class="cart" routerLink="/cart">
       🛒
-      <span class="cart-count" *ngIf="cartCount > 0">{{ cartCount }}</span>
+      <span class="cart-count">{{ cartCount }}</span>
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 <section class="hero">
   <h1>Find things you’ll love</h1>
 
@@ -33,7 +33,7 @@
   </div>
 </section>
 
-<!-- CATEGORIES -->
+<!-- ================= CATEGORIES ================= -->
 <section class="categories">
   <div class="category-card" *ngFor="let cat of categories">
     <div class="img-placeholder"></div>
@@ -41,37 +41,47 @@
   </div>
 </section>
 
-<!-- products -->
+<!-- ================= PRODUCTS ================= -->
 <section class="products">
   <h2>Popular right now</h2>
 
   <div class="product-grid">
     <div class="product-card" *ngFor="let p of products">
-      <div class="img-placeholder product-img" (click)="openPopup(p)">
-        <!-- image yahan aayegi -->
-      </div>
+
+      <!-- IMAGE FROM BACKEND -->
+      <img
+        [src]="p.image"
+        alt="{{ p.name }}"
+        class="product-img"
+        (click)="openPopup(p)"
+      />
+
       <p class="title">{{ p.name }}</p>
       <p class="price">₹{{ p.price }}</p>
     </div>
   </div>
 </section>
 
-<!-- POPUP (UNCHANGED) -->
+<!-- ================= POPUP ================= -->
 <div class="overlay" *ngIf="showPopup">
   <div class="modal">
     <span class="close" (click)="closePopup()">✖</span>
 
-    <div class="img-placeholder modal-img" ></div>
+    <img
+      [src]="selectedItem?.image"
+      class="modal-img"
+      alt="{{ selectedItem?.name }}"
+    />
 
-    <h2>{{ selectedItem.name }}</h2>
-    <p>{{ selectedItem.desc }}</p>
-    <h3>₹{{ selectedItem.price }}</h3>
+    <h2>{{ selectedItem?.name }}</h2>
+    <p>{{ selectedItem?.description }}</p>
+    <h3>₹{{ selectedItem?.price }}</h3>
 
     <button (click)="addToCart()">Add to Cart</button>
   </div>
 </div>
 
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
 <footer class="footer">
   <div class="footer-container">
     <div class="footer-section">

@@ -1,5 +1,4 @@
-
-/* NAVBAR */
+/* ================= NAVBAR ================= */
 .navbar {
   display: flex;
   align-items: center;
@@ -12,7 +11,6 @@
   z-index: 100;
 }
 
-/* LOGO */
 .logo {
   font-size: 22px;
   font-weight: bold;
@@ -25,31 +23,6 @@
   list-style: none;
   gap: 30px;
 }
-
-.right-section {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-/* CART */
-.cart {
-  position: relative;
-  font-size: 22px;
-  cursor: pointer;
-}
-
-.cart-count {
-  position: absolute;
-  top: -6px;
-  right: -10px;
-  background: #f1641e;
-  color: white;
-  font-size: 12px;
-  padding: 2px 6px;
-  border-radius: 50%;
-}
-
 
 .nav-links li a {
   text-decoration: none;
@@ -85,6 +58,24 @@
   border-radius: 20px;
 }
 
+/* CART */
+.cart {
+  position: relative;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: #f1641e;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
 /* HAMBURGER */
 .hamburger {
   display: none;
@@ -92,7 +83,7 @@
   cursor: pointer;
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE NAV */
 @media (max-width: 768px) {
   .nav-links {
     position: absolute;
@@ -119,7 +110,7 @@
   }
 }
 
-/* HERO */
+/* ================= HERO ================= */
 .hero {
   padding: 60px 20px;
   text-align: center;
@@ -154,7 +145,7 @@
   cursor: pointer;
 }
 
-/* CATEGORIES */
+/* ================= CATEGORIES ================= */
 .categories {
   display: flex;
   justify-content: center;
@@ -173,7 +164,6 @@
   font-weight: 500;
 }
 
-/* IMAGE PLACEHOLDER */
 .img-placeholder {
   width: 100%;
   height: 120px;
@@ -181,7 +171,7 @@
   border-radius: 50%;
 }
 
-/* PRODUCTS */
+/* ================= PRODUCTS ================= */
 .products {
   padding: 40px 20px;
 }
@@ -190,29 +180,106 @@
   margin-bottom: 20px;
 }
 
+/* 🔥 GPT GENERATED (REPEATED AS-IT-IS) */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 20px;
+  padding: 20px;
 }
 
 .product-card {
   border: 1px solid #eee;
   padding: 10px;
+  text-align: center;
 }
 
 .product-img {
-  height: 160px;
-  border-radius: 4px;
-}
-
-.title {
-  margin: 8px 0 4px;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  cursor: pointer;
 }
 
 .price {
   font-weight: bold;
 }
+
+/* EXISTING SUPPORTING STYLES */
+.title {
+  margin: 8px 0 4px;
+}
+
+/* ================= POPUP ================= */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal {
+  width: 300px;
+  height: 300px;
+  background: #f7f4f4;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+  border: 5px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.modal-img {
+  height: 170px;
+  background: white;
+  border-radius: 6px;
+}
+
+.modal h2 {
+  font-size: 14px;
+  color: whitesmoke;
+  margin: 4px 0;
+}
+
+.modal p {
+  font-size: 20px;
+  color: #555;
+}
+
+.modal h3 {
+  font-size: 13px;
+  color: whitesmoke;
+}
+
+.close {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.modal button {
+  font-size: 11px;
+  padding: 6px;
+  background: white;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal button:hover {
+  background: blue;
+}
+
+/* ================= FOOTER ================= */
 .footer {
   background: #2f2f2f;
   color: #fff;
@@ -249,25 +316,12 @@
   color: #f1641e;
 }
 
-/* LOGO */
-.logo {
-  color: #f1641e;
-  margin-bottom: 10px;
-}
-
-/* SOCIAL ICONS */
 .social-icons {
   display: flex;
   gap: 12px;
   font-size: 20px;
-  cursor: pointer;
 }
 
-.social-icons span:hover {
-  color: #f1641e;
-}
-
-/* BOTTOM BAR */
 .footer-bottom {
   text-align: center;
   padding: 12px;
@@ -276,7 +330,6 @@
   color: #aaa;
 }
 
-/* RESPONSIVE */
 @media (max-width: 600px) {
   .footer-container {
     padding: 0 20px 20px;
@@ -286,81 +339,4 @@
   .social-icons {
     justify-content: center;
   }
-}
-/* BACKGROUND OVERLAY (screen dim only) */
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-/* SMALL POPUP MODAL */
-.modal {
-  width: 300px;
-  height: 300px;
-  background: #f7f4f4;
-  border-radius: 10px;
-  padding: 10px;
-  text-align: center;
-  position: relative;
-  border: 5px solid black; 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-/* IMAGE PLACEHOLDER */
-.modal-img {
-  height: 170px;
-  background: white;
-  border-radius: 6px;
-}
-
-/* PRODUCT NAME */
-.modal h2 {
-  font-size: 14px;
-  color: whitesmoke;
-  margin: 4px 0;
-}
-
-/* DESCRIPTION */
-.modal p {
-  font-size: 20px;
-  color: #555;
-  line-height: 1.2;
-}
-
-/* PRICE */
-.modal h3 {
-  font-size: 13px;
-  color: whitesmoke;
-}
-
-/* CLOSE BUTTON */
-.close {
-  position: absolute;
-  top: 4px;
-  right: 6px;
-  font-size: 14px;
-  cursor: pointer;
-  /* color: #b71c1c; */
-}
-
-/* ADD TO CART BUTTON */
-.modal button {
-  font-size: 11px;
-  padding: 6px;
-  background: white;
-  color: black;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.modal button:hover {
-  background:blue;
 }
