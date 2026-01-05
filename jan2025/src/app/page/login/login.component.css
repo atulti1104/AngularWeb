@@ -1,23 +1,95 @@
-.login-container {
-  max-width: 350px;
-  margin: 80px auto;
+.login-wrapper {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff7f0;
+}
+
+.login-card {
+  width: 320px;
+  background: white;
   padding: 25px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   text-align: center;
 }
 
-.login-container input {
-  width: 100%;
-  margin-bottom: 12px;
-  padding: 10px;
+.login-card h2 {
+  color: #f1641e;
+  margin-bottom: 5px;
 }
 
-.login-container button {
+.subtitle {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* CAPTCHA */
+.captcha-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffe5d6;
+  padding: 8px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.captcha-text {
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #d84315;
+}
+
+.captcha-box button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* ERROR */
+.error {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+/* LOGIN BUTTON */
+.login-card button[type="submit"] {
   width: 100%;
   padding: 10px;
   background: #f1641e;
   color: white;
   border: none;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 14px;
+}
+
+.login-card button:hover {
+  background: #e45718;
+}
+
+/* SIGNUP */
+.signup-text {
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+.signup-text a {
+  color: #f1641e;
+  text-decoration: none;
+  font-weight: 500;
 }

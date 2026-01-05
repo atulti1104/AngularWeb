@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-
 import { CartService } from '../../services/cart.service';
 import { ProductService } from '../../services/product.service';
-
 @Component({
   selector: 'app-search',
   standalone: true,
@@ -16,12 +14,10 @@ export class SearchComponent implements OnInit {
 
   /* ================= NAV / HEADER ================= */
   menuOpen = false;
-
-  toggleMenu() {
+    toggleMenu() {
     this.menuOpen = !this.menuOpen;
   }
-
-  categories = [
+categories = [
     'Home & Living',
     'Jewelry',
     'Art & Collectibles',

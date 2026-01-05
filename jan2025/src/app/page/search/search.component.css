@@ -48,14 +48,22 @@
   cursor: pointer;
   border-radius: 20px;
 }
+.login:hover{
+  background-color: #f1641e;
+  color: white;
+}
 
 .signup {
-  background: #f1641e;
-  border: none;
-  color: white;
-  padding: 6px 16px;
+   background: transparent;
+  border: 1px solid #f1641e;
+  color: #f1641e;
+  padding: 6px 14px;
   cursor: pointer;
   border-radius: 20px;
+}
+.signup:hover{
+  background-color: #f1641e;
+  color: white;
 }
 
 /* CART */
