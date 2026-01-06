@@ -1,38 +1,58 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+
 import { CartService } from '../../services/cart.service';
 import { ProductService } from '../../services/product.service';
+import { CategoryService } from '../../services/category.service';
+
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
 
   /* ================= NAV / HEADER ================= */
-  menuOpen = false;
-    toggleMenu() {
-    this.menuOpen = !this.menuOpen;
-  }
-categories = [
-    'Home & Living',
-    'Jewelry',
-    'Art & Collectibles',
-    'Clothing',
-    'Craft Supplies',
-    'Vintage'
-  ];
+  // menuOpen = false;
+  // toggleMenu() {
+  //   this.menuOpen = !this.menuOpen;
+  // }
 
   year = new Date().getFullYear();
+
+  /* ================= SEARCH ================= */
+  searchText = '';
+
+  // products section reference (scroll)
+  @ViewChild('productsSection') productsSection!: ElementRef;
+
+  scrollToProducts() {
+    this.productsSection?.nativeElement.scrollIntoView({
+      behavior: 'smooth'
+    });
+  }
+
+  // highlight category if matches search
+  isCategoryMatch(categoryName: string): boolean {
+    if (!this.searchText) return false;
+
+    return categoryName
+      .toLowerCase()
+      .includes(this.searchText.toLowerCase());
+  }
+
+  /* ================= CATEGORIES ================= */
+  categories: any[] = [];
 
   /* ================= CART ================= */
   cartCount = 0;
 
   /* ================= PRODUCTS ================= */
-  products: any[] = [];   // 🔥 backend se aayega
+  products: any[] = [];
 
   /* ================= POPUP ================= */
   showPopup = false;
@@ -40,29 +60,33 @@ categories = [
 
   constructor(
     private cartService: CartService,
-    private productService: ProductService
+    private productService: ProductService,
+    private categoryService: CategoryService
   ) {}
 
   ngOnInit(): void {
 
-    // ✅ Cart count (old code safe)
+    /* ===== CART COUNT ===== */
     this.cartService.cartCount$.subscribe(count => {
       this.cartCount = count;
     });
 
-    // ✅ Products from backend (new code added)
+    /* ===== PRODUCTS ===== */
     this.productService.getProducts().subscribe({
-      next: (data) => {
-        this.products = data;
-      },
-      error: (err) => {
-        console.error('Product API Error', err);
-      }
+      next: (data) => this.products = data,
+      error: (err) => console.error('Product API Error', err)
+    });
+
+    /* ===== CATEGORIES ===== */
+    this.categoryService.getCategories().subscribe({
+      next: (data) => this.categories = data,
+      error: (err) => console.error('Category API Error', err)
     });
   }
 
   /* ================= POPUP ACTIONS ================= */
   openPopup(item: any) {
+    console.log('Product clicked:', item);
     this.selectedItem = item;
     this.showPopup = true;
   }
