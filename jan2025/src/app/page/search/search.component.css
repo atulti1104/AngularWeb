@@ -123,12 +123,15 @@
   padding: 60px 20px;
   text-align: center;
   background-color: #fff7f0;
+ 
 }
 
 .hero h1 {
   font-size: 32px;
   margin-bottom: 20px;
 }
+
+   
 
 .search-bar {
   display: flex;

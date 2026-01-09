@@ -16,27 +16,13 @@ import { CategoryService } from '../../services/category.service';
 })
 export class SearchComponent implements OnInit {
 
-  /* ================= NAV / HEADER ================= */
-  // menuOpen = false;
-  // toggleMenu() {
-  //   this.menuOpen = !this.menuOpen;
-  // }
+  
 
   year = new Date().getFullYear();
 
-  /* ================= SEARCH ================= */
+  /* ================= SEARCH === highlight category if matches search================= */
   searchText = '';
-
-  // products section reference (scroll)
-  @ViewChild('productsSection') productsSection!: ElementRef;
-
-  scrollToProducts() {
-    this.productsSection?.nativeElement.scrollIntoView({
-      behavior: 'smooth'
-    });
-  }
-
-  // highlight category if matches search
+  
   isCategoryMatch(categoryName: string): boolean {
     if (!this.searchText) return false;
 
@@ -45,6 +31,14 @@ export class SearchComponent implements OnInit {
       .includes(this.searchText.toLowerCase());
   }
 
+   // products section reference (scroll)
+  @ViewChild('productsSection') productsSection!: ElementRef;
+
+  scrollToProducts() {
+    this.productsSection?.nativeElement.scrollIntoView({
+      behavior: 'smooth'
+    });
+  }
   /* ================= CATEGORIES ================= */
   categories: any[] = [];
 

@@ -1,2 +1,109 @@
-<p>cart works!</p>
-<h1>cart component hai je bhaiyo</h1>
+<nav class="navbar">
+  <div class="logo">
+    <span>MyCompany</span>
+  </div>
+
+
+
+  
+   
+    <div class="Home" routerLink="/search">
+      🏠
+      <span class=></span>
+    </div>
+  
+</nav>
+<!--  -->
+<div class="cart-container">
+
+  <h2>Your Cart</h2>
+
+  <!-- EMPTY CART -->
+  <p class="empty" *ngIf="cartItems.length === 0">
+    Your cart is empty 🛒
+  </p>
+
+  <!-- CART ITEMS -->
+  <div class="cart-item" *ngFor="let item of cartItems">
+
+    <img [src]="item.image" alt="{{ item.name }}" />
+
+    <div class="details">
+      <h3>{{ item.name }}</h3>
+      <p>₹{{ item.price }}</p>
+
+      <!-- QUANTITY -->
+      <div class="qty">
+        <button (click)="decreaseQty(item.id)">−</button>
+        <span>{{ item.quantity }}</span>
+        <button (click)="increaseQty(item.id)">+</button>
+      </div>
+    </div>
+
+    <!-- REMOVE -->
+    <button class="remove" (click)="removeItem(item.id)">
+      ✖
+    </button>
+
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="summary" *ngIf="cartItems.length > 0">
+
+    <h3>Total: ₹{{ totalPrice }}</h3>
+
+    <div class="actions">
+      <button class="clear" (click)="clearCart()">
+        Clear Cart
+      </button>
+
+      <button class="order" (click)="orderNow()">
+        Order Now
+      </button>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- footer -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section">
+      <h2 class="logo">MyCompany</h2>
+      <p>Discover unique products, crafted with care and creativity.</p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Account</h3>
+      <ul>
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Sign Up</a></li>
+        <li><a href="#">My Orders</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <span>🌐</span>
+        <span>📘</span>
+        <span>📸</span>
+        <span>🐦</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © {{ year }} MyCompany. All rights reserved.
+  </div>
+</footer>

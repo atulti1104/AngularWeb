@@ -16,7 +16,7 @@ app.use('/images', express.static('img'));
 app.use('/api/products', productRoutes);
 
 
-app.use('/images', express.static('img'));
+//app.use('/images', express.static('img'));
 app.use('/api/categories', categoryRoutes);
 
 app.listen(PORT, () => {

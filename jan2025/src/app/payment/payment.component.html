@@ -1,0 +1,37 @@
+<div class="payment-container">
+
+  <h2>Complete Your Payment</h2>
+  <p class="subtitle">
+    Scan the QR code below and upload payment screenshot
+  </p>
+
+  <!-- QR CODE -->
+  <div class="qr-box">
+    <img src="/assets/images/upi-qr.jpg" alt="UPI QR Code" />
+    <p>Scan using any UPI app</p>
+  </div>
+
+
+
+  
+  <!-- UPLOAD SCREENSHOT -->
+  <div class="upload-box" *ngIf="!paymentDone">
+    <label class="upload-btn">
+      Upload Payment Screenshot
+      <input type="file" accept="image/*" (change)="onFileSelected($event)" hidden />
+    </label>
+  </div>
+
+  <!-- PREVIEW -->
+  <div class="preview" *ngIf="screenshotPreview">
+    <h4>Uploaded Screenshot</h4>
+    <img [src]="screenshotPreview" />
+  </div>
+
+  <!-- SUCCESS -->
+  <div class="success" *ngIf="paymentDone">
+    ✅ <strong>Order Successful!</strong>
+    <p>Thank you for your payment.</p>
+  </div>
+
+</div>
