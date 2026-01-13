@@ -1,57 +1,92 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    HttpClientModule
+  ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
 
-  usernameOrEmail = '';
-  password = '';
-  captchaInput = '';
+  // ===== FORM FIELDS =====
+  identifier: string = ''; // email OR username
+  password: string = '';
+  captchaInput: string = '';
 
-  generatedCaptcha = '';
-  errorMessage = '';
+  // ===== CAPTCHA =====
+  captcha: string = '';
 
-  ngOnInit() {
+  // ===== UI STATE =====
+  errorMessage: string = '';
+  loading: boolean = false;
+
+  // ===== API =====
+  private API_URL = 'http://localhost:3000/api/auth/login';
+
+  constructor(
+    private http: HttpClient,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
     this.generateCaptcha();
   }
 
-  // 🔐 Simple captcha generator
+  // 🔐 captcha generator
   generateCaptcha() {
-    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-    this.generatedCaptcha = '';
-    for (let i = 0; i < 5; i++) {
-      this.generatedCaptcha += chars.charAt(
-        Math.floor(Math.random() * chars.length)
-      );
-    }
+    this.captcha = Math.random()
+      .toString(36)
+      .substring(2, 7)
+      .toUpperCase();
   }
 
+  // 🚀 LOGIN
   login() {
-    // ❌ captcha mismatch
-    if (this.captchaInput !== this.generatedCaptcha) {
-      this.errorMessage = 'Invalid captcha. Please try again.';
+    this.errorMessage = '';
+
+    if (!this.identifier || !this.password) {
+      this.errorMessage = 'All fields are required';
+      return;
+    }
+
+    if (this.captchaInput !== this.captcha) {
+      this.errorMessage = 'Invalid captcha';
       this.generateCaptcha();
       return;
     }
 
-    // 🔴 demo validation (replace with backend later)
-    if (
-      this.usernameOrEmail === 'admin@gmail.com' &&
-      this.password === '123456'
-    ) {
-      this.errorMessage = '';
-      alert('Login Successful ✅');
-      // future: router.navigate(['/']);
-    } else {
-      this.errorMessage = 'User not registered. Please sign up first.';
-    }
+    this.loading = true;
+
+    this.http.post<any>(this.API_URL, {
+      identifier: this.identifier,
+      password: this.password
+    }).subscribe({
+      next: (res) => {
+        this.loading = false;
+
+        // 🔐 store login state (basic)
+        window.localStorage.setItem('isLoggedIn', 'true');
+        window.localStorage.setItem('user', JSON.stringify(res.user));
+
+        // 🔥 redirect to search page
+        this.router.navigate(['/search']);
+      },
+      error: (err) => {
+        this.loading = false;
+        this.errorMessage =
+          err.error?.message || 'Login failed';
+        this.generateCaptcha();
+      }
+    });
   }
 }

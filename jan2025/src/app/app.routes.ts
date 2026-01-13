@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { SearchComponent } from './page/search/search.component';
-import { BookingComponent } from './page/booking/booking.component';
 import { LoginComponent } from './page/login/login.component';
 import { SignupComponent } from './page/signup/signup.component';
 import { CartComponent } from './page/cart/cart.component';
@@ -22,13 +21,12 @@ export const routes: Routes = [
     path:'signup',
     component:SignupComponent
   },
-  {
-    path:'booking',
-    component:BookingComponent
-  }
-,{
+
+{
   path:'cart',
   component:CartComponent
 },
-{ path: 'payment', loadComponent: () => import('./payment/payment.component').then(m => m.PaymentComponent) }  
+{ path: 'payment', 
+  loadComponent: () => import('./payment/payment.component').then(m => m.PaymentComponent)
+}   
 ];

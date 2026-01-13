@@ -1,51 +1,40 @@
-<div class="login-wrapper">
-  <form class="login-card" (ngSubmit)="login()">
+<div class="auth-box">
 
-    <h2>Welcome Back</h2>
-    <p class="subtitle">Login to your account</p>
+  <h2>Login</h2>
 
-    <input
-      type="text"
-      placeholder="Username or Email"
-      [(ngModel)]="usernameOrEmail"
-      name="username"
-      required
-    />
+  <input
+    type="text"
+    placeholder="Email or Username"
+    [(ngModel)]="identifier"
+  />
 
-    <input
-      type="password"
-      placeholder="Password"
-      [(ngModel)]="password"
-      name="password"
-      required
-    />
+  <input
+    type="password"
+    placeholder="Password"
+    [(ngModel)]="password"
+  />
 
-    <!-- CAPTCHA -->
-    <div class="captcha-box">
-      <span class="captcha-text">{{ generatedCaptcha }}</span>
-      <button type="button" (click)="generateCaptcha()">↻</button>
-    </div>
+  <!-- CAPTCHA -->
+  <div class="captcha">
+    <strong>{{ captcha }}</strong>
+    <button type="button" (click)="generateCaptcha()">↻</button>
+  </div>
 
-    <input
-      type="text"
-      placeholder="Enter Captcha"
-      [(ngModel)]="captchaInput"
-      name="captcha"
-      required
-    />
+  <input
+    type="text"
+    placeholder="Enter Captcha"
+    [(ngModel)]="captchaInput"
+  />
 
-    <!-- ERROR MESSAGE -->
-    <p class="error" *ngIf="errorMessage">
-      {{ errorMessage }}
-    </p>
+  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
 
-    <button type="submit">Login</button>
+  <button (click)="login()" [disabled]="loading">
+    {{ loading ? 'Logging in...' : 'Login' }}
+  </button>
 
-    <!-- SIGNUP LINK -->
-    <p class="signup-text">
-      New user?
-      <a routerLink="/signup">Create an account</a>
-    </p>
+  <p class="switch">
+    New user?
+    <a routerLink="/signup">Create an account</a>
+  </p>
 
-  </form>
 </div>

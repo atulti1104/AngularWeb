@@ -1,95 +1,51 @@
-.login-wrapper {
-  min-height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #fff7f0;
-}
-
-.login-card {
-  width: 320px;
-  background: white;
+.auth-box {
+  max-width: 350px;
+  margin: 60px auto;
   padding: 25px;
+  background: white;
   border-radius: 10px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.auth-box h2 {
   text-align: center;
+  margin-bottom: 20px;
 }
 
-.login-card h2 {
-  color: #f1641e;
-  margin-bottom: 5px;
-}
-
-.subtitle {
-  font-size: 13px;
-  color: #666;
-  margin-bottom: 15px;
-}
-
-.login-card input {
+.auth-box input {
   width: 100%;
   padding: 10px;
   margin-bottom: 12px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 14px;
 }
 
-/* CAPTCHA */
-.captcha-box {
+.captcha {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #ffe5d6;
-  padding: 8px;
-  border-radius: 6px;
   margin-bottom: 10px;
 }
 
-.captcha-text {
-  font-weight: bold;
+.captcha strong {
   letter-spacing: 2px;
-  color: #d84315;
 }
 
-.captcha-box button {
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-/* ERROR */
 .error {
   color: red;
-  font-size: 12px;
+  font-size: 13px;
   margin-bottom: 10px;
 }
 
-/* LOGIN BUTTON */
-.login-card button[type="submit"] {
+button {
   width: 100%;
   padding: 10px;
   background: #f1641e;
   color: white;
   border: none;
-  border-radius: 6px;
   cursor: pointer;
-  font-size: 14px;
 }
 
-.login-card button:hover {
-  background: #e45718;
-}
-
-/* SIGNUP */
-.signup-text {
+.switch {
   margin-top: 12px;
   font-size: 13px;
-}
-
-.signup-text a {
-  color: #f1641e;
-  text-decoration: none;
-  font-weight: 500;
+  text-align: center;
 }

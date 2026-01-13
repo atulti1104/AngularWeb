@@ -1,69 +1,100 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    HttpClientModule
+  ],
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
 
-  username = '';
-  email = '';
-  password = '';
-  confirmPassword = '';
-  captchaInput = '';
+  // ===== FORM FIELDS =====
+  username: string = '';
+  email: string = '';
+  password: string = '';
+  confirmPassword: string = '';
+  captchaInput: string = '';
 
-  generatedCaptcha = '';
-  errorMessage = '';
-  successMessage = '';
+  // ===== CAPTCHA =====
+  captcha: string = '';
 
-  ngOnInit() {
+  // ===== UI STATE =====
+  errorMessage: string = '';
+  loading: boolean = false;
+
+  // ===== BACKEND API =====
+  private API_URL = 'http://localhost:3000/api/auth/signup';
+successMessage: any;
+
+  constructor(
+    private http: HttpClient,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
     this.generateCaptcha();
   }
 
-  // 🔐 Captcha generator
+  // 🔐 Generate captcha
   generateCaptcha() {
-    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-    this.generatedCaptcha = '';
-    for (let i = 0; i < 5; i++) {
-      this.generatedCaptcha += chars.charAt(
-        Math.floor(Math.random() * chars.length)
-      );
-    }
+    this.captcha = Math.random()
+      .toString(36)
+      .substring(2, 7)
+      .toUpperCase();
   }
 
+  // 🚀 SIGNUP SUBMIT
   signup() {
     this.errorMessage = '';
-    this.successMessage = '';
 
-    if (this.password !== this.confirmPassword) {
-      this.errorMessage = 'Passwords do not match.';
+    // ===== VALIDATIONS =====
+    if (!this.username || !this.email || !this.password || !this.confirmPassword) {
+      this.errorMessage = 'All fields are required';
       return;
     }
 
-    if (this.captchaInput !== this.generatedCaptcha) {
-      this.errorMessage = 'Invalid captcha. Please try again.';
+    if (this.password !== this.confirmPassword) {
+      this.errorMessage = 'Passwords do not match';
+      return;
+    }
+
+    if (this.captchaInput !== this.captcha) {
+      this.errorMessage = 'Invalid captcha';
       this.generateCaptcha();
       return;
     }
 
-    // 🔥 Demo success (backend baad me connect hoga)
-    this.successMessage = 'Registration successful. You can now login.';
-    
-    this.username = '';
-    this.email = '';
-    this.password = '';
-    this.confirmPassword = '';
-    this.captchaInput = '';
-    this.generateCaptcha();
+    // ===== API PAYLOAD =====
+    const payload = {
+      username: this.username,
+      email: this.email,
+      password: this.password
+    };
+
+    this.loading = true;
+
+    // ===== API CALL =====
+    this.http.post<any>(this.API_URL, payload).subscribe({
+      next: (res) => {
+        this.loading = false;
+        alert('Registration successful ✅');
+        this.router.navigate(['/login']); // 🔥 redirect to login
+      },
+      error: (err) => {
+        this.loading = false;
+        this.errorMessage =
+          err.error?.message || 'Signup failed. Try again.';
+      }
+    });
   }
-  
-
-
-
 }
