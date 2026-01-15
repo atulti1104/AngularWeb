@@ -3,7 +3,6 @@ const router = express.Router();
 
 // ✅ EXACT PATH (from routes → backend → data)
 const products = require('../data/products.js');
-
 router.get('/', (req, res) => {
   res.json(products);
 });

@@ -3,9 +3,6 @@ const bcrypt = require('bcryptjs');
 const db = require('../db');
 
 const router = express.Router();
-
-
-
 // LOGIN
 router.post('/login', (req, res) => {
   const { identifier, password } = req.body;
@@ -41,10 +38,12 @@ router.post('/login', (req, res) => {
           email: user.email
         }
       });
+       console.log(user);
     }
+   
   );
 });
-
+  
 
 // SIGNUP
 router.post('/signup', async (req, res) => {

@@ -30,3 +30,4 @@ export const routes: Routes = [
   loadComponent: () => import('./payment/payment.component').then(m => m.PaymentComponent)
 }   
 ];
+  

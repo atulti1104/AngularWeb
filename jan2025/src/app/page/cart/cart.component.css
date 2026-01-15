@@ -179,3 +179,76 @@ h2 {
     justify-content: center;
   }
 }
+
+
+/* ================= CONTACT SELLER BAR ================= */
+
+.contact-seller {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #f1641e, #ff9a3c);
+  padding: 20px 25px;
+  border-radius: 14px;
+  margin: 20px auto;
+  color: white;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.contact-text h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.contact-text p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.contact-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* BUTTONS */
+.contact-btn {
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+/* WhatsApp */
+.contact-btn.whatsapp {
+  background: #25D366;
+  color: white;
+}
+
+.contact-btn.whatsapp:hover {
+  background: #1ebe5d;
+  transform: translateY(-2px);
+}
+
+/* Gmail */
+.contact-btn.gmail {
+  background: white;
+  color: #f1641e;
+}
+
+.contact-btn.gmail:hover {
+  background: #ffe8d6;
+  transform: translateY(-2px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .contact-seller {
+    flex-direction: column;
+    text-align: center;
+  }
+}

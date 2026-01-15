@@ -1,8 +1,8 @@
 const categories = [
   {
     id: 1,
-    name: "Home Decore Handmade",
-    image: "http://localhost:3000/images/homemade.jpg"
+    name: "Wooden Crafts",    
+    image: "http://localhost:3000/images/wooden.jpeg"
   },
   {
     id: 2,

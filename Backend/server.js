@@ -18,17 +18,17 @@ app.use('/api/products', productRoutes);
 
 app.use('/api/auth', authRoutes);
 
-//app.use('/images', express.static('img'));
+
 app.use('/api/categories', categoryRoutes);
 
 
-const helmet = require('helmet');
+//const helmet = require('helmet');
 
-app.use(
-  helmet({
-    contentSecurityPolicy: false
-  })
-);
+// app.use(
+//   helmet({
+//     contentSecurityPolicy: false
+//   })
+// );
 
 
 app.listen(PORT, () => {
