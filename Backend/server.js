@@ -4,7 +4,7 @@ const cors = require('cors');
 const authRoutes = require('./routes/auth.routes');
 const productRoutes = require('./routes/product.routes');
 const categoryRoutes = require('./routes/category.routes');
-
+const orderRoutes = require('./routes/order.routes');
 const app = express();
 const PORT = 3000;
 
@@ -21,14 +21,8 @@ app.use('/api/auth', authRoutes);
 
 app.use('/api/categories', categoryRoutes);
 
+app.use('/api/order', orderRoutes);
 
-//const helmet = require('helmet');
-
-// app.use(
-//   helmet({
-//     contentSecurityPolicy: false
-//   })
-// );
 
 
 app.listen(PORT, () => {

@@ -79,6 +79,7 @@ router.post('/signup', async (req, res) => {
       );
     }
   );
+   console.log('BODY RECEIVED:', req.body);
 });
 
 module.exports = router;

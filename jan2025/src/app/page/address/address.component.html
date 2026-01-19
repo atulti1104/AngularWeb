@@ -1,0 +1,63 @@
+<div class="address-wrapper">
+
+  <h2>Delivery Address</h2>
+  <p>Please provide your address to complete the order</p>
+
+  <form (ngSubmit)="saveAddress()">
+
+    <input
+      type="text"
+      placeholder="Full Name"
+      [(ngModel)]="address.name"
+      name="name"
+      required
+    />
+
+    <input
+      type="text"
+      placeholder="Mobile Number"
+      [(ngModel)]="address.mobile"
+      name="mobile"
+      required
+    />
+
+    <textarea
+      placeholder="House No, Street, Area"
+      [(ngModel)]="address.fullAddress"
+      name="fullAddress"
+      required
+    ></textarea>
+
+    <div class="row">
+      <input
+        type="text"
+        placeholder="City"
+        [(ngModel)]="address.city"
+        name="city"
+        required
+      />
+
+      <input
+        type="text"
+        placeholder="State"
+        [(ngModel)]="address.state"
+        name="state"
+        required
+      />
+    </div>
+
+    <input
+      type="text"
+      placeholder="Pincode"
+      [(ngModel)]="address.pincode"
+      name="pincode"
+      required
+    />
+
+    <button type="submit">
+      Save Address & Continue
+    </button>
+
+  </form>
+
+</div>

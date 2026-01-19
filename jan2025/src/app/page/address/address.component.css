@@ -1,0 +1,58 @@
+.address-wrapper {
+  max-width: 520px;
+  margin: 50px auto;
+  padding: 25px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.address-wrapper h2 {
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.address-wrapper p {
+  text-align: center;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+textarea {
+  resize: none;
+  height: 90px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.row input {
+  flex: 1;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  background: #f1641e;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #d95312;
+}
