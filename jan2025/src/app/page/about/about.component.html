@@ -1,0 +1,156 @@
+<!-- ================= ABOUT HERO ================= -->
+<section class="about-hero">
+  <div class="about-hero-content">
+    <h1>Indian Handmade Heritage</h1>
+    <p>
+      Preserving the soul of India through Government-Affiliated
+      Traditional Crafts from all 29 States
+    </p>
+  </div>
+</section>
+
+<!-- ================= ABOUT INTRO ================= -->
+<section class="about-intro">
+  <h2>Crafted Across 29 States of India 🇮🇳</h2>
+  <p>
+    India is home to one of the world’s richest handmade traditions.
+    Every state carries a unique art form passed down through generations.
+    Our platform proudly supports **Government-recognized artisans**
+    and authentic handcrafted products.
+  </p>
+</section>
+
+<!-- ================= STATES & CRAFTS ================= -->
+<section class="craft-grid">
+
+  <div class="craft-card">
+    <h3>🧵 Rajasthan</h3>
+    <p>Blue Pottery, Bandhani, Leather Craft</p>
+  </div>
+
+  <div class="craft-card">
+    <h3>🪵 Gujarat</h3>
+    <p>Ajrakh Printing, Wood Carving, Rogan Art</p>
+  </div>
+
+  <div class="craft-card">
+    <h3>🧶 Kashmir (J&K)</h3>
+    <p>Pashmina Shawls, Papier-Mâché, Walnut Wood</p>
+  </div>
+
+  <div class="craft-card">
+    <h3>🖌️ Madhya Pradesh</h3>
+    <p>Gond Painting, Dhokra Art</p>
+  </div>
+
+  <div class="craft-card">
+    <h3>🪡 West Bengal</h3>
+    <p>Kantha Embroidery, Terracotta</p>
+  </div>
+
+  <div class="craft-card">
+    <h3>🎭 Odisha</h3>
+    <p>Pattachitra, Stone Carving</p>
+  </div>
+
+  <div class="craft-card">
+    <h3>🧺 Assam</h3>
+    <p>Bamboo & Cane Craft, Muga Silk</p>
+  </div>
+
+  <div class="craft-card">
+    <h3>🧵 Tamil Nadu</h3>
+    <p>Kanchipuram Silk, Tanjore Painting</p>
+  </div>
+
+  <div class="craft-card">
+    <h3>🪔 Uttar Pradesh</h3>
+    <p>Chikankari, Brassware, Glass Craft</p>
+  </div>
+
+  <div class="craft-card">
+    <h3>🧶 Punjab</h3>
+    <p>Phulkari Embroidery</p>
+  </div>
+
+  <div class="craft-card">
+    <h3>🪡 Maharashtra</h3>
+    <p>Paithani Sarees, Warli Art</p>
+  </div>
+
+  <div class="craft-card">
+    <h3>🧵 Bihar</h3>
+    <p>Madhubani Painting</p>
+  </div>
+
+</section>
+
+<!-- ================= GOVERNMENT AFFILIATION ================= -->
+<section class="govt-section">
+  <h2>Government-Affiliated & Artisan Supported</h2>
+  <p>
+    Our crafts are sourced from artisans associated with
+    <strong>Handicrafts Development Corporations</strong>,
+    <strong>MSME</strong>, and state-level government initiatives.
+    Every purchase supports livelihoods and preserves India’s cultural identity.
+  </p>
+</section>
+
+<!-- ================= MISSION ================= -->
+<section class="mission">
+  <h2>Our Mission</h2>
+  <p>
+    To empower Indian artisans, preserve dying art forms,
+    and bring authentic handmade crafts to modern homes
+    — directly from the hands that create them.
+  </p>
+</section>
+
+
+<!-- ================= INTERACTIVE INDIA MAP ================= -->
+<section class="india-map-section">
+
+  <h2>Explore Crafts of India 🇮🇳</h2>
+  <p>Hover or click on a state to discover its traditional crafts</p>
+
+  <div class="map-container">
+
+    <!-- LEFT: MAP -->
+    <div class="map">
+
+      <!-- SIMPLE SVG INDIA MAP (SYMBOLIC) -->
+      <svg viewBox="0 0 300 400">
+
+        <path d="M120 50 L180 50 L200 120 L160 160 L130 140 Z"
+          (mouseenter)="showCraft('Rajasthan')"
+          (click)="showCraft('Rajasthan')"
+          class="state" />
+
+        <path d="M80 160 L140 160 L150 220 L90 240 Z"
+          (mouseenter)="showCraft('Madhya Pradesh')"
+          (click)="showCraft('Madhya Pradesh')"
+          class="state" />
+
+        <path d="M150 250 L220 260 L200 320 L150 300 Z"
+          (mouseenter)="showCraft('Tamil Nadu')"
+          (click)="showCraft('Tamil Nadu')"
+          class="state" />
+
+        <path d="M200 160 L260 170 L250 230 L210 220 Z"
+          (mouseenter)="showCraft('Odisha')"
+          (click)="showCraft('Odisha')"
+          class="state" />
+
+      </svg>
+
+    </div>
+
+    <!-- RIGHT: DETAILS -->
+    <div class="craft-info">
+      <h3>{{ selectedState }}</h3>
+      <p>{{ craftDetails }}</p>
+    </div>
+
+  </div>
+
+</section>

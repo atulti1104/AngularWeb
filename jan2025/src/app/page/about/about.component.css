@@ -1,0 +1,175 @@
+/* ================= ABOUT HERO ================= */
+.about-hero {
+  min-height: 60vh;
+  background: linear-gradient(
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.6)
+  ),  url('../../../assets/images/india-craft.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+/* url('../../../assets/images/background.avif'); */
+
+.about-hero h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.about-hero p {
+  font-size: 18px;
+  max-width: 700px;
+}
+
+/* ================= INTRO ================= */
+.about-intro {
+  padding: 60px 20px;
+  text-align: center;
+  background: #fff7f0;
+}
+
+.about-intro h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.about-intro p {
+  max-width: 800px;
+  margin: auto;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* ================= CRAFT GRID ================= */
+.craft-grid {
+  padding: 60px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.craft-card {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.craft-card:hover {
+  transform: translateY(-8px);
+}
+
+.craft-card h3 {
+  margin-bottom: 8px;
+}
+
+.craft-card p {
+  color: #666;
+}
+
+/* ================= GOVERNMENT SECTION ================= */
+.govt-section {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #f1641e, #ff9a3c);
+  color: white;
+  text-align: center;
+}
+
+.govt-section h2 {
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.govt-section p {
+  max-width: 800px;
+  margin: auto;
+  line-height: 1.7;
+}
+
+/* ================= MISSION ================= */
+.mission {
+  padding: 60px 20px;
+  text-align: center;
+  background: #fff;
+}
+
+.mission h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.mission p {
+  max-width: 700px;
+  margin: auto;
+  color: #555;
+}
+
+
+/* ================= INDIA MAP SECTION ================= */
+
+.india-map-section {
+  padding: 70px 20px;
+  background: #fff7f0;
+  text-align: center;
+}
+
+.india-map-section h2 {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.india-map-section p {
+  color: #555;
+  margin-bottom: 40px;
+}
+
+/* LAYOUT */
+.map-container {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* MAP */
+.map svg {
+  width: 280px;
+}
+
+.state {
+  fill: #f4a261;
+  stroke: #fff;
+  stroke-width: 2;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.state:hover {
+  fill: #e76f51;
+  transform: scale(1.02);
+}
+
+/* INFO PANEL */
+.craft-info {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  max-width: 320px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.craft-info h3 {
+  margin-bottom: 10px;
+  color: #f1641e;
+}
+
+.craft-info p {
+  color: #444;
+  line-height: 1.6;
+}
