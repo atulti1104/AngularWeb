@@ -1,141 +1,194 @@
-/* ================= NAVBAR ================= */
 
+.body{
+  background-color: whitesmoke;
+}
+
+/* navbar */
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 30px;
+  padding: 14px 20px;
   background: whitesmoke;
-  border-bottom: 1px solid #eee;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
 }
 
-.logo {
+.logo span {
   font-size: 22px;
-  font-weight: bold;
-  color: #f1641e;
-}
-
-/* LINKS */
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 30px;
-}
-
-.nav-links li a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-}
-
-.nav-links li a:hover {
+  font-weight: 700;
   color: #f1641e;
 }
 
 /* AUTH BUTTONS */
 .auth-buttons {
   display: flex;
-  gap: 10px;
+  align-items: center;
+  gap: 15px;
+}
+
+/* BUTTONS */
+.login,
+.signup {
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
 }
 
 .login {
   background: transparent;
-  border: 1px solid #f1641e;
-  color: #f1641e;
-  padding: 6px 14px;
-  cursor: pointer;
-  border-radius: 20px;
-}
-.login:hover{
-  background-color: #f1641e;
-  color: white;
+  color: #333;
 }
 
 .signup {
+  background: transparent;
+  color: #333;
+}
+
+.cart {
+  cursor: pointer;
+  position: relative;
+  font-size: 20px;
    background: transparent;
-  border: 1px solid #f1641e;
+  /* border: 1px solid #f1641e; */
   color: #f1641e;
   padding: 6px 14px;
   cursor: pointer;
   border-radius: 20px;
 }
-.signup:hover{
+.cart:hover{
   background-color: #f1641e;
-  color: white;
-}
-
-/* CART */
-.cart {
-  position: relative;
-  font-size: 22px;
-  cursor: pointer;
 }
 
 .cart-count {
   position: absolute;
   top: -6px;
   right: -10px;
-  background: #f1641e;
-  color:whitesmoke;
-  font-size: 12px;
-  padding: 2px 6px;
+  background: red;
+  color: white;
+  font-size: 11px;
   border-radius: 50%;
+  padding: 2px 6px;
 }
 
-/* HAMBURGER */
-.hamburger {
-  display: none;
-  font-size: 24px;
+.login,
+.signup {
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
   cursor: pointer;
+  font-size: 14px;
 }
 
-/* RESPONSIVE NAV */
+.login {
+  background: transparent;
+  color: #333;
+}
+
+.signup {
+  background: transparent;
+  color: #333;
+}
+
+.cart {
+  cursor: pointer;
+  position: relative;
+  font-size: 20px;
+   background: transparent;
+  /* border: 1px solid #f1641e; */
+  color: #f1641e;
+  padding: 6px 14px;
+  cursor: pointer;
+  border-radius: 20px;
+}
+.cart:hover{
+  background-color: #f1641e;
+}
+
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: red;
+  color: white;
+  font-size: 11px;
+  border-radius: 50%;
+  padding: 2px 6px;
+}
+
+/* TOGGLE ICON */
+.nav-toggle {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: #f1641e;
+}
+
+/* ================= MOBILE VIEW ================= */
+
 @media (max-width: 768px) {
-  .nav-links {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    background: whitesmoke;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    display: none;
-    padding: 20px 0;
-  }
 
-  .nav-links.active {
-    display: flex;
-  }
-
-  .hamburger {
+  .nav-toggle {
     display: block;
   }
 
   .auth-buttons {
+    position: absolute;
+    top: 65px;
+    right: 15px;
+    background: white;
+    flex-direction: column;
+    width: 220px;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
     display: none;
+  }
+
+  .auth-buttons.open {
+    display: flex;
+  }
+
+  .login,
+  .signup {
+    width: 100%;
+    text-align: center;
+  }
+
+  .cart {
+    margin-top: 10px;
   }
 }
 
-/* ================= HERO ================= */
-.hero {
-  padding: 60px 20px;
+/* end nav bar */
+
+/* hero section */
+
+
+.about-hero {
+  min-height: 60vh;
+  background: linear-gradient(
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.6)
+  ),  url('../../../assets/images/india-craft.jpg') ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  background-color: #fff7f0;
-  background-image: url('../../../assets/images/background.avif');
-  /* background-size: cover; */
- 
+  color: white;
 }
-/* C:\Users\atult\OneDrive\Desktop\AngularWeb\jan2025\src\assets\images\background.avif */
-.hero h1 {
-  font-size: 32px;
-  margin-bottom: 20px;
+.about-hero h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
 }
-
-   
-
+.about-hero p {
+  font-size: 18px;
+  max-width: 700px;
+}
 .search-bar {
   display: flex;
   justify-content: center;
@@ -149,6 +202,7 @@
   font-size: 16px;
   border: 1px solid #ccc;
   border-right: none;
+  border-radius: 30px;
 }
 
 .search-bar button {
@@ -157,10 +211,13 @@
   color: white;
   border: none;
   cursor: pointer;
+  border-radius: 30px;
 }
 .search-bar button:hover {
   background: #d45317;
 }
+
+/* end of hero section */
 
 /* ================= CATEGORIES ================= */
 .categories {
@@ -219,7 +276,6 @@
   margin-bottom: 20px;
 }
 
-/* 🔥 GPT GENERATED (REPEATED AS-IT-IS) */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -243,12 +299,10 @@
 .price {
   font-weight: bold;
 }
-
-/* EXISTING SUPPORTING STYLES */
 .title {
   margin: 8px 0 4px;
 }
-
+/* end of product section */
 /* ================= POPUP ================= */
 .overlay {
   position: fixed;
@@ -377,5 +431,123 @@
 
   .social-icons {
     justify-content: center;
+  }
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: whitesmoke;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo span {
+  font-size: 22px;
+  font-weight: 700;
+  color: #f1641e;
+}
+
+/* AUTH BUTTONS */
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* BUTTONS */
+.login,
+.signup {
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.login {
+  background: transparent;
+  color: #333;
+}
+
+.signup {
+  background: transparent;
+  color: #333;
+}
+
+.cart {
+  cursor: pointer;
+  position: relative;
+  font-size: 20px;
+   background: transparent;
+  /* border: 1px solid #f1641e; */
+  color: #f1641e;
+  padding: 6px 14px;
+  cursor: pointer;
+  border-radius: 20px;
+}
+.cart:hover{
+  background-color: #f1641e;
+}
+
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: #f1641e;
+  color: white;
+  font-size: 11px;
+  border-radius: 50%;
+  padding: 2px 6px;
+}
+
+/* TOGGLE ICON */
+.nav-toggle {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: #f1641e;
+}
+
+/* ================= MOBILE VIEW ================= */
+
+@media (max-width: 768px) {
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .auth-buttons {
+    position: absolute;
+    top: 65px;
+    right: 15px;
+    background: white;
+    flex-direction: column;
+    width: 220px;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    display: none;
+  }
+
+  .auth-buttons.open {
+    display: flex;
+  }
+
+  .login,
+  .signup {
+    width: 100%;
+    text-align: center;
+  }
+
+  .cart {
+    margin-top: 10px;
   }
 }

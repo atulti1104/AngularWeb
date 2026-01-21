@@ -1,32 +1,55 @@
-
+<div class="body">
 <!-- ================= NAVBAR ================= -->
 <nav class="navbar">
+
+  <!-- LOGO -->
   <div class="logo">
     <span>MyCompany</span>
   </div>
 
+  <!-- TOGGLE BUTTON (MOBILE) -->
+  <div class="nav-toggle" (click)="toggleNav()">
+    {{ navOpen ? '✖' : '☰' }}
+  </div>
 
+  <!-- AUTH BUTTONS -->
+  <div class="auth-buttons" [class.open]="navOpen">
 
-  <div class="auth-buttons">
-    <button class="login" routerLink="/login">Login🔑</button>
-    <button class="signup" routerLink="/signup">Sign Up</button>
+    <button class="login" routerLink="/login">
+      Login 🔑
+    </button>
+
+    <button class="signup" routerLink="/signup">
+      Sign Up
+    </button>
 
     <div class="cart" routerLink="/cart">
       🛒
       <span class="cart-count">{{ cartCount }}</span>
     </div>
+
   </div>
+
 </nav>
 
-<!-- ================= HERO ================= -->
-<section class="hero">
-   <h1>Find things you’ll love</h1> 
 
-  <div class="search-bar">
+<!-- ================= HERO ================= -->
+<section class="about-hero">
+  <div class="about-hero-content">
+    <h1>Indian Handmade Heritage</h1>
+    <p>
+      Preserving the soul of India through Government-Affiliated
+      Traditional Crafts from all 29 States
+    </p>
+
+    <div class="search-bar">
     <input type="text" placeholder="Search for anything"  [(ngModel)]="searchText"/>
     <button>Search</button>
   </div>
+  </div>
+  
 </section>
+
 
 <!-- ================= CATEGORIES ================= -->
 <!-- CATEGORIES -->
@@ -118,3 +141,4 @@
     © {{ year }} MyCompany. All rights reserved.
   </div>
 </footer>
+</div>

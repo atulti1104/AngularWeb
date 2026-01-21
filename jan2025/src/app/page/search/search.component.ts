@@ -16,7 +16,12 @@ import { CategoryService } from '../../services/category.service';
 })
 export class SearchComponent implements OnInit {
 
-  
+  navOpen = false;
+
+toggleNav() {
+  this.navOpen = !this.navOpen;
+}
+
 
   year = new Date().getFullYear();
 
