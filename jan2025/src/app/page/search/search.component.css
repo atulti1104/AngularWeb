@@ -49,6 +49,15 @@
   color: #333;
 }
 
+.signup:hover{
+  background-color: #f1641e;
+  color: white;
+}
+.login:hover{
+  background-color: #f1641e;
+  color: white;
+}
+
 .cart {
   cursor: pointer;
   position: relative;
