@@ -15,22 +15,29 @@
   />
 
   <!-- CAPTCHA -->
+<input
+    type="text"
+    placeholder="Enter Captcha"
+    [(ngModel)]="captchaInput"
+  />
+
+
   <div class="captcha">
     <strong>{{ captcha }}</strong>
     <button type="button" (click)="generateCaptcha()">↻</button>
   </div>
 
-  <input
-    type="text"
-    placeholder="Enter Captcha"
-    [(ngModel)]="captchaInput"
-  />
+  
 
   <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
 
   <button (click)="login()" [disabled]="loading">
     {{ loading ? 'Logging in...' : 'Login' }}
   </button>
+
+
+ 
+
 
   <p class="switch">
     New user?

@@ -5,6 +5,8 @@ const db = require('../db');
 const router = express.Router();
 // LOGIN
 router.post('/login', (req, res) => {
+  console.log("req",req.body);
+  console.log("db",req);
   const { identifier, password } = req.body;
   // identifier = email OR username
 

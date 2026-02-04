@@ -1,0 +1,103 @@
+<nav class="navbar">
+
+  <!-- LOGO -->
+  <div class="logo">
+    <span>MyCompany</span>
+  </div>
+
+  <!-- TOGGLE BUTTON (MOBILE) -->
+  <div class="nav-toggle" (click)="toggleNav()">
+    {{ navOpen ? '✖' : '☰' }}
+  </div>
+
+  <!-- AUTH BUTTONS -->
+  <div class="auth-buttons" [class.open]="navOpen">
+
+    <button class="login" routerLink="/login">
+      Login 🔑
+    </button>
+
+    <button class="signup" routerLink="/signup">
+      Sign Up
+    </button>
+
+    <div class="cart" routerLink="/cart">
+      🛒
+      <span class="cart-count">{{ cartCount }}</span>
+    </div>
+
+  </div>
+
+</nav>
+
+
+
+<div class="container" *ngIf="!loading && product">
+
+  <div class="product-wrapper">
+
+    <!-- LEFT SIDE IMAGES -->
+    <div class="image-section">
+
+      <div class="thumbnail-list">
+        <img [src]="product.image" />
+        <img [src]="'/assets/images/hero.png'" />
+        <img [src]="product.image" />
+        <img [src]="product.image" />
+      </div>
+
+      <div class="main-image">
+        <img [src]="product.image" alt="product" />
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE DETAILS -->
+    <div class="details-section">
+
+      <h1 class="title">{{ product.name }}</h1>
+
+      <div class="rating">
+        ⭐⭐⭐⭐☆
+        <span>(124 reviews)</span>
+      </div>
+
+      <div class="price">
+        ₹{{ product.price }}
+        <span class="mrp">₹{{ product.price + 300 }}</span>
+        <span class="off">30% OFF</span>
+      </div>
+
+      <p class="desc">
+        {{ product.description }}
+      </p>
+
+      <div class="features">
+        <p>✔ Handmade Authentic Craft</p>
+        <p>✔ Made by Indian Artisans</p>
+        <p>✔ Eco Friendly Material</p>
+        <p>✔ Free Delivery</p>
+      </div>
+
+      <!-- QUANTITY -->
+      <div class="qty">
+        <button (click)="qty = qty > 1 ? qty - 1 : 1">−</button>
+        <span>{{ qty }}</span>
+        <button (click)="qty = qty + 1">+</button>
+      </div>
+
+      <!-- BUTTONS -->
+      <div class="buttons">
+        <button class="cart-btn" (click)="orderNow()">Add to Cart</button>
+        <button class="buy-btn" (click)="orderNow()">Buy Now</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="loading" *ngIf="loading">
+  Loading product...
+</div>

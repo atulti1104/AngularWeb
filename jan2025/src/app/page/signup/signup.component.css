@@ -1,9 +1,25 @@
+.signup-card{
+  max-width: 360px;
+  margin:  auto;
+  padding: 30px;
+  border-radius: 16px;
+
+  /* GLASS EFFECT */
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+
+  animation: fadeInUp 0.8s ease;
+}
 .signup-wrapper {
   min-height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #fff7f0;
 }
 
 .signup-card {
@@ -11,7 +27,7 @@
   background: white;
   padding: 25px;
   border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
@@ -40,16 +56,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #ffe5d6;
+
   padding: 8px;
-  border-radius: 6px;
+  border-radius: 12px;
   margin-bottom: 10px;
 }
 
 .captcha-text {
   font-weight: bold;
   letter-spacing: 2px;
-  color: #d84315;
+  font-style: italic;
 }
 
 .captcha-box button {
@@ -57,6 +73,7 @@
   background: transparent;
   cursor: pointer;
   font-size: 16px;
+
 }
 
 /* ERROR / SUCCESS */

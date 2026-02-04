@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
   // ===== UI STATE =====
   errorMessage: string = '';
   loading: boolean = false;
+  loginSuccess: boolean = false;
 
   // ===== API =====
   private API_URL = 'http://localhost:3000/api/auth/login';
@@ -91,5 +92,4 @@ export class LoginComponent implements OnInit {
   }
 
 
-  
 }

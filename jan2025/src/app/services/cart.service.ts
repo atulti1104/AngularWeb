@@ -104,4 +104,7 @@ export class CartService {
     this.cartCountSubject.next(totalQty);
     this.cartItemsSubject.next([...this.cartItems]);
   }
+
+
+  
 }

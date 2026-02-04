@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-
+import { Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { ProductService } from '../../services/product.service';
 import { CategoryService } from '../../services/category.service';
@@ -60,7 +60,8 @@ toggleNav() {
   constructor(
     private cartService: CartService,
     private productService: ProductService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -100,4 +101,10 @@ toggleNav() {
     this.cartService.addToCart(this.selectedItem);
     this.closePopup();
   }
+
+  openProductDetail(id: number) {
+    console.log("id",id)
+  this.router.navigate(['/product',id]);
 }
+}
+  
