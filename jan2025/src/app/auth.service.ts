@@ -11,5 +11,13 @@ export class AuthService {
   signup(data: any) {
     return this.http.post(`${this.API}/signup`, data);
   }
+  sendOtp(email: string) {
+  return this.http.post('http://localhost:3000/api/auth/send-otp', { email });
+}
+
+verifyOtp(email: string, otp: string) {
+  return this.http.post('http://localhost:3000/api/auth/verify-otp', { email, otp });
+}
+
 }
    

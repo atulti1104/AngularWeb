@@ -2,6 +2,8 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const db = require('../db');
 
+const { generateOTP, verifyOTP } = require('../utils/otpStore');
+const sendOTP = require('../utils/sendEmail');
 const router = express.Router();
 // LOGIN
 router.post('/login', (req, res) => {
@@ -44,6 +46,28 @@ router.post('/login', (req, res) => {
     }
    
   );
+});
+
+
+router.post('/send-otp', async (req, res) => {
+  const { email } = req.body;
+
+  const otp = generateOTP(email);
+  await sendOTP(email, otp);
+
+  res.json({ message: 'OTP sent successfully' });
+});
+
+
+// VERIFY OTP
+router.post('/verify-otp', (req, res) => {
+  const { email, otp } = req.body;
+
+  if (verifyOTP(email, otp)) {
+    res.json({ success: true });
+  } else {
+    res.status(400).json({ success: false, message: 'Invalid OTP' });
+  }
 });
   
 

@@ -12,13 +12,23 @@
       required
     />
 
-    <input
-      type="email"
-      placeholder="Email Address"
-      [(ngModel)]="email"
-      name="email"
-      required
-    />
+     <div class="section">
+      
+
+      <div class="email-group">
+        <input type="email" name="email" [(ngModel)]="email" placeholder="example@gmail.com">
+        <button type="button" (click)="sendOtp()" [disabled]="otpSent">
+          {{ otpSent ? 'Sent' : 'Send OTP' }}
+        </button>
+      </div>
+
+      <div class="email-group" *ngIf="otpSent">
+        <input type="text" name="otp" [(ngModel)]="otp" placeholder="Enter OTP">
+        <button type="button" class="verify" (click)="verifyOtp()">Verify</button>
+      </div>
+
+      <p class="success" *ngIf="emailVerified">✔ Email verified successfully</p>
+    </div>
 
     <input
       type="password"

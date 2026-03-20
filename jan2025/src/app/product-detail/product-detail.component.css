@@ -1,3 +1,5 @@
+
+/* navbar */
 .navbar {
   display: flex;
   align-items: center;
@@ -165,18 +167,13 @@
   .cart {
     margin-top: 10px;
   }
-}
-
-
-
-
+}  
 .container {
   padding: 40px;
   background: #f3f3f3;
   min-height: 100vh;
 }
 
-/* WRAPPER */
 .product-wrapper {
   display: flex;
   gap: 40px;
@@ -201,34 +198,31 @@
   width: 60px;
   height: 60px;
   object-fit: cover;
-  border: 1px solid #ddd;
+  border: 2px solid transparent;
   cursor: pointer;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.thumbnail-list img:hover {
+  border: 2px solid #f1641e;
+}
+
+.thumbnail-list img.active {
+  border: 2px solid #ff9900;
 }
 
 .main-image img {
   width: 380px;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 /* DETAILS */
-.details-section {
-  flex: 1;
-}
+.details-section { flex: 1; }
 
-.title {
-  font-size: 26px;
-  margin-bottom: 10px;
-}
+.title { font-size: 26px; }
 
-.rating {
-  color: #f1641e;
-  margin-bottom: 10px;
-}
-
-.rating span {
-  color: #555;
-  margin-left: 8px;
-}
+.rating { color: #f1641e; margin: 10px 0; }
 
 .price {
   font-size: 26px;
@@ -244,22 +238,11 @@
   color: #777;
 }
 
-.off {
-  color: green;
-  font-size: 14px;
-  margin-left: 8px;
-}
+.off { color: green; margin-left: 8px; }
 
-.desc {
-  margin: 15px 0;
-  line-height: 1.6;
-  color: #333;
-}
+.desc { margin: 15px 0; color: #333; }
 
-.features p {
-  margin: 5px 0;
-  color: #444;
-}
+.features p { margin: 4px 0; }
 
 /* QTY */
 .qty {
@@ -278,43 +261,21 @@
   font-size: 18px;
 }
 
-.qty span {
-  font-size: 18px;
-  width: 40px;
-  text-align: center;
-}
-
-/* BUTTONS */
-.buttons {
-  display: flex;
-  gap: 15px;
-}
+.buttons { display: flex; gap: 15px; }
 
 .cart-btn {
   background: #ffd814;
-  border: none;
   padding: 12px 20px;
-  cursor: pointer;
   border-radius: 6px;
+  border: none;
 }
 
 .buy-btn {
   background: #ffa41c;
-  border: none;
   padding: 12px 20px;
-  cursor: pointer;
   border-radius: 6px;
+  border: none;
 }
 
 .cart-btn:hover { background: #f7ca00; }
 .buy-btn:hover { background: #fa8900; }
-
-/* MOBILE */
-@media(max-width: 900px) {
-  .product-wrapper {
-    flex-direction: column;
-  }
-  .main-image img {
-    width: 100%;
-  }
-}

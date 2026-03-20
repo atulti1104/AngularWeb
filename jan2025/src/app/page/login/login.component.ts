@@ -48,7 +48,8 @@ export class LoginComponent implements OnInit {
     this.captcha = Math.random()
       .toString(36)
       .substring(2, 7)
-      .toUpperCase();
+      .toUpperCase()
+      .toLowerCase();
   }
 
   // 🚀 LOGIN

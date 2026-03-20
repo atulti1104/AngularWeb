@@ -44,6 +44,10 @@ export const routes: Routes = [
   path: 'product/:id',
   component: ProductDetailComponent
 }
+,{
+  path:'chatbot',
+  loadComponent: () => import('./components/chatbot/chatbot.component').then(m => m.AssistantComponent)
+}
 
 ];
   

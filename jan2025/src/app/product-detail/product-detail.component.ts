@@ -1,6 +1,8 @@
 
 
-import { Component, OnInit } from '@angular/core';
+
+
+ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../services/product.service';
@@ -14,18 +16,21 @@ import { CartService } from '../services/cart.service';
   styleUrl: './product-detail.component.css'
 })
 export class ProductDetailComponent implements OnInit {
-
-
-  navOpen = false;
+ navOpen = false;
 
 toggleNav() {
   this.navOpen = !this.navOpen;
 }
 cartCount = 0;
 
+
   product: any;
   loading = true;
   qty = 1;
+
+  // 👇 image system
+  selectedImage: string = '';
+  images: string[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -36,43 +41,45 @@ cartCount = 0;
 
   ngOnInit(): void {
 
-    // 🔹 Get product ID from URL
     const idParam = this.route.snapshot.paramMap.get('id');
 
     if (!idParam) {
-      console.error('Product ID missing in route');
       this.router.navigate(['/search']);
       return;
     }
 
     const id = Number(idParam);
 
-    // 🔹 Fetch product from backend API
     this.productService.getProductById(id).subscribe({
       next: (data) => {
         this.product = data;
+
+        // MULTIPLE IMAGE SUPPORT
+        if (data.images && data.images.length > 0) {
+          this.images = data.images;
+        } else {
+          // fallback (single image → create thumbnails)
+          this.images = [data.image, data.image, data.image, data.image];
+        }
+
+        this.selectedImage = this.images[0];
         this.loading = false;
-        console.log('Loaded product:', data);
       },
-      error: (err) => {
-        console.error('Product API Error', err);
-        this.router.navigate(['/search']);
-      }
+      error: () => this.router.navigate(['/search'])
     });
   }
 
-  // 🔹 ADD TO CART + BUY NOW (same flow)
-  orderNow() {
+  changeImage(img: string) {
+    this.selectedImage = img;
+  }
 
+  orderNow() {
     const cartItem = {
       ...this.product,
       quantity: this.qty
     };
 
     this.cartService.addToCart(cartItem);
-
-    // redirect to cart page
     this.router.navigate(['/cart']);
   }
-
 }

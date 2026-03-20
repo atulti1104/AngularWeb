@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-
+import { AuthService } from '../../auth.service';
 @Component({
   selector: 'app-signup',
   standalone: true,
@@ -38,7 +38,8 @@ successMessage: any;
 
   constructor(
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -97,4 +98,27 @@ successMessage: any;
       }
     });
   }
+
+  otpSent = false;
+otp = '';
+emailVerified = false;
+
+sendOtp() {
+
+  this.authService.sendOtp(this.email).subscribe(() => {
+    alert('OTP sent to email');
+    this.otpSent = true;
+  });
+}
+
+verifyOtp() {
+  this.authService.verifyOtp(this.email, this.otp).subscribe({
+    next: () => {
+      alert('Email verified');
+      this.emailVerified = true;
+    },
+    error: () => alert('Invalid OTP')
+  });
+}
+
 }

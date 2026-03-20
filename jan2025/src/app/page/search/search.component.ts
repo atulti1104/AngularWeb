@@ -6,11 +6,12 @@ import { Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { ProductService } from '../../services/product.service';
 import { CategoryService } from '../../services/category.service';
+import { AssistantComponent } from "../../components/chatbot/chatbot.component";
 
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule, AssistantComponent],
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })

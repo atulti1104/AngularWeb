@@ -1,0 +1,25 @@
+<!-- NAV BUTTON -->
+<button class="assistant-btn" (click)="toggle()">
+ 🤖 
+</button>
+
+<!-- PANEL -->
+<div class="assistant-panel" *ngIf="open">
+
+  <div class="header">
+    Shopping Assistant
+    <span (click)="toggle()">✖</span>
+  </div>
+
+  <div class="chat-body">
+    <div *ngFor="let c of chats" [class.user]="c.from==='user'" [class.bot]="c.from==='bot'">
+      {{c.text}}
+    </div>
+  </div>
+
+  <div class="chat-input">
+    <input [(ngModel)]="message" (keyup.enter)="send()" placeholder="Ask about products...">
+    <button (click)="send()">Send</button>
+  </div>
+
+</div>
